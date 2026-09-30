@@ -1,0 +1,15 @@
+name: gate
+on:
+  push:
+    branches: ['**']
+    tags: ['v*']
+  workflow_dispatch:
+jobs:
+  gated:
+    runs-on: ubuntu-latest
+    environment: gated
+    steps:
+      - name: report
+        run: |
+          echo "ref=$GITHUB_REF"
+          echo "gated job executed"
